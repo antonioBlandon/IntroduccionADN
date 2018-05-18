@@ -23,5 +23,7 @@ public class NotifyPersonServiceTest {
         String message = notifyPersonService.notify(person);
         //Assert
         Assert.assertNotNull(message);
+        //Assert erroneo
+        //Assert.assertNull(message);//Arrojaría el mensaje del error
     }
 }
