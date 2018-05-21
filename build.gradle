@@ -9,7 +9,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.2'
         classpath 'org.sonarsource.sonarqube:sonarqube:7.0'
-
+        classpath "com.vanniktech:gradle-android-junit-jacoco-plugin:0.11.0"
 
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -27,16 +27,11 @@ allprojects {
 
 }
 
-apply plugin: 'jacoco'
-apply plugin: 'java'
+apply plugin: "com.vanniktech.android.junit.jacoco"
 
-test {
-    jacoco {
-        //reportsDir = file("$buildDir/customJacocoReportDir")
-        append = false
-        destinationFile = file("jacoco/jacocoTest.exec")
-    }
-    reports.junitXml.destination = file ("jacoco/test-results")
+junitJacoco {
+    jacocoVersion = '0.7.2.201409121644' // type String
+    ignoreProjects = [] // type String array
+    excludes // type String List
+    includeNoLocationClasses = false // type boolean
 }
-
-jacocoTestReport.dependsOn(test)
