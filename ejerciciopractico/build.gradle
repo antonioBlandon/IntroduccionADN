@@ -36,3 +36,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.8.1"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
