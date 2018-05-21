@@ -34,7 +34,10 @@ test {
     jacoco {
         //reportsDir = file("$buildDir/customJacocoReportDir")
         append = false
-        destinationFile = file("jacoco/test-results")
+        destinationFile = file("jacoco/jacocoTest.exec")
     }
+    reports.junitXml.destination = file ("jacoco/test-results")
+
 }
+jacocoTestReport.dependsOn(test)
 
