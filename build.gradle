@@ -37,7 +37,6 @@ test {
         destinationFile = file("jacoco/jacocoTest.exec")
     }
     reports.junitXml.destination = file ("jacoco/test-results")
-
+    finalizedBy jacocoTestReport
 }
-jacocoTestReport.dependsOn(test)
 
